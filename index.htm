@@ -8,7 +8,7 @@
   <style>
     /* Your CSS (unchanged for brevity) */
     :root {
-      --main-color: #fff0f5;
+      --main-color: #fff5f8;
       --accent-color: #ff69b4;
       --text-color: #4d4d4d;
       --heart-color: #ffb6c1;
@@ -225,18 +225,59 @@
     #popup button:hover {
       background: #ff3f99;
     }
+    #happy-birthday-text {
+  font-size: 3rem;
+  text-align: center;
+  color: #ff1493;
+  font-weight: bold;
+  animation: floatUpDown 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1000;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
   </style>
 </head>
 <body>
+<div class="floating-hearts">
+  <div class="heart" style="left: 10%; animation-delay: 1s;"></div>
+  <div class="heart" style="left: 25%; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 40%; animation-delay: 3s;"></div>
+  <div class="heart" style="left: 60%; animation-delay: 1.5s;"></div>
+  <div class="heart" style="left: 80%; animation-delay: 2.5s;"></div>
+  <div class="heart" style="left: 15%; animation-delay: 4s;"></div>
+  <div class="heart" style="left: 35%; animation-delay: 3.3s;"></div>
+  <div class="heart" style="left: 35%; animation-delay: 3.3s;"></div>
+  <div class="heart" style="left: 35%; animation-delay: 3.3s;"></div>
+  <div class="heart" style="left: 50%; animation-delay: 1.8s;"></div>
+  <div class="heart" style="left: 70%; animation-delay: 2.8s;"></div>
+  <div class="heart" style="left: 90%; animation-delay: 4.5s;"></div>
+  <div class="heart" style="left: 5%; animation-delay: 1.2s;"></div>
+  <div class="heart" style="left: 22%; animation-delay: 2.2s;"></div>
+  <div class="heart" style="left: 38%; animation-delay: 3.7s;"></div>
+  <div class="heart" style="left: 55%; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 72%; animation-delay: 3s;"></div>
+  <div class="heart" style="left: 87%; animation-delay: 4.2s;"></div>
+</div>
 
   <!-- Popup -->
   <div id="popup">
     <h2>Happy</h2>
     <h2>Birthday</h2>
     <h2>Garima</h2>
-    <h2>(How Mean!) 🎀</h2>
     <p>May your day be filled with magic and pink sparkles!</p>
-    <p>I think you will like it. <br>My gift to you!</p>
+    <p>I think you will like it.</p>
     <button onclick="closePopup()">Thank You!</button>
   </div>
 
@@ -253,7 +294,7 @@
 
   <!-- Main content -->
   <div class="content-wrapper">
-    <div class="header">🎀 Happy Birthday, Princess! 🎂</div>
+    <div class="header" id="happy-birthday-text">🎀 Happy Birthday, Princess! 🎂</div>
     <div class="subtext">Wishing you cupcakes, sparkles, and a sky full of pink clouds ☁️💫</div>
     <div class="sweet-line">You're the reason hearts smile 💕</div>
 
@@ -272,7 +313,7 @@
       </div>
     </div>
 
-    <div class="footer">
+    <div class="footer" >
       Made with sprinkles of love 🍓 for someone super special 💌<br>
       Keep glowing, giggling, and being gorgeous 💫
     </div>
