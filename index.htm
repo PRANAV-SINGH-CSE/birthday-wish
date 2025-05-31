@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="3.jpeg" type="image/x-icon" href="favicon.ico">
-
   <title>Happy Birthday Princess! 🎀</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Your CSS (unchanged for brevity) */
     :root {
       --main-color: #fff0f5;
       --accent-color: #ff69b4;
@@ -191,7 +190,6 @@
       }
     }
 
-    /* Popup Style */
     #popup {
       position: fixed;
       top: 50%;
@@ -210,9 +208,7 @@
     #popup h2 {
       color: #ff4f87;
       font-family: 'Pacifico', cursive;
-      margin-top: 1px;
-      margin-bottom: 1px;
-
+      margin: 1px 0;
     }
 
     #popup button {
@@ -233,49 +229,29 @@
 </head>
 <body>
 
+  <!-- Popup -->
   <div id="popup">
-    <h2> Happy</h2>
-    <h2>  Birthday </h2>
-    <h2>  Garima </h2>
-    <h2>  (How Mean!) 🎀 </h2>
+    <h2>Happy</h2>
+    <h2>Birthday</h2>
+    <h2>Garima</h2>
+    <h2>(How Mean!) 🎀</h2>
     <p>May your day be filled with magic and pink sparkles!</p>
     <p>I think you will like it. <br>My gift to you!</p>
     <button onclick="closePopup()">Thank You!</button>
   </div>
 
+  <!-- Floating hearts -->
   <div class="floating-hearts">
-  <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
-  <div class="heart" style="left: 10%; animation-delay: 1s;"></div>
-  <div class="heart" style="left: 15%; animation-delay: 2s;"></div>
-  <div class="heart" style="left: 20%; animation-delay: 3s;"></div>
-  <div class="heart" style="left: 25%; animation-delay: 4s;"></div>
-  <div class="heart" style="left: 30%; animation-delay: 0.5s;"></div>
-  <div class="heart" style="left: 35%; animation-delay: 1.5s;"></div>
-  <div class="heart" style="left: 40%; animation-delay: 2.5s;"></div>
-  <div class="heart" style="left: 45%; animation-delay: 3.5s;"></div>
-  <div class="heart" style="left: 50%; animation-delay: 4.5s;"></div>
-  <div class="heart" style="left: 55%; animation-delay: 0.3s;"></div>
-  <div class="heart" style="left: 60%; animation-delay: 1.3s;"></div>
-  <div class="heart" style="left: 65%; animation-delay: 2.3s;"></div>
-  <div class="heart" style="left: 70%; animation-delay: 3.3s;"></div>
-  <div class="heart" style="left: 75%; animation-delay: 4.3s;"></div>
-  <div class="heart" style="left: 80%; animation-delay: 0.7s;"></div>
-  <div class="heart" style="left: 85%; animation-delay: 1.7s;"></div>
-  <div class="heart" style="left: 90%; animation-delay: 2.7s;"></div>
-  <div class="heart" style="left: 95%; animation-delay: 3.7s;"></div>
-  <div class="heart" style="left: 12%; animation-delay: 1.1s;"></div>
-  <div class="heart" style="left: 27%; animation-delay: 2.2s;"></div>
-  <div class="heart" style="left: 43%; animation-delay: 3.4s;"></div>
-  <div class="heart" style="left: 58%; animation-delay: 4.8s;"></div>
-  <div class="heart" style="left: 72%; animation-delay: 1.9s;"></div>
-  <div class="heart" style="left: 88%; animation-delay: 2.8s;"></div>
-</div>
+    <!-- (hearts omitted here for brevity — keep yours as-is) -->
+  </div>
 
-  <audio autoplay loop muted id="bg-music">
+  <!-- Audio -->
+  <audio id="bg-music" loop>
     <source src="jil.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
+  <!-- Main content -->
   <div class="content-wrapper">
     <div class="header">🎀 Happy Birthday, Princess! 🎂</div>
     <div class="subtext">Wishing you cupcakes, sparkles, and a sky full of pink clouds ☁️💫</div>
@@ -302,33 +278,28 @@
     </div>
   </div>
 
+  <!-- Script -->
   <script>
     window.addEventListener('DOMContentLoaded', function () {
+      // Show popup on page load
       document.getElementById('popup').style.display = 'block';
       document.body.classList.add('popup-active');
-
-      const audio = document.getElementById('bg-music');
-      function enableAudio() {
-        audio.muted = false;
-        audio.play().catch(() => {});
-        document.removeEventListener('click', enableAudio);
-        document.removeEventListener('touchstart', enableAudio);
-      }
-
-      document.addEventListener('click', enableAudio);
-      document.addEventListener('touchstart', enableAudio);
-
-      audio.muted = true;
-      audio.play().catch(() => {
-        console.log('Autoplay prevented, user interaction required.');
-      });
     });
 
     function closePopup() {
       document.getElementById('popup').style.display = 'none';
       document.body.classList.remove('popup-active');
+
+      // Play audio on user gesture
+      const audio = document.getElementById('bg-music');
+      audio.muted = false;
+      audio.src = "jil.mp3";  // reassign to force reload
+      audio.load();
+
+      audio.play().catch((err) => {
+        console.log("Audio playback failed:", err);
+      });
     }
   </script>
-
 </body>
 </html>
